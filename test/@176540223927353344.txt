@@ -1,7 +1,0 @@
-<@176540223927353344>: asdfasdfasdfasdfasdf
-<@176540223927353344>: test,again
-<@176540223927353344>: will,this,have,spaces
-{"id":"176540223927353344","bot":false,"system":false,"flags":64,"username":"skywiind","discriminator":"9999","avatar":"a_2fa63326185bde07be27760e2f384268","createdTimestamp":1462160869343,"defaultAvatarURL":"https://cdn.discordapp.com/embed/avatars/4.png","tag":"skywiind#9999","avatarURL":"https://cdn.discordapp.com/avatars/176540223927353344/a_2fa63326185bde07be27760e2f384268.gif","displayAvatarURL":"https://cdn.discordapp.com/avatars/176540223927353344/a_2fa63326185bde07be27760e2f384268.gif"}: test,test,test
-2: test,test,test,test
-2: hey,dude,this,is,a,test
-<@176540223927353344>: hey,dude,this,is,a,test
