@@ -29,6 +29,7 @@ const client = new Discord.Client({
 
 let bot = {
     client,
+    dbo,
     prefix: "fe.",
     owners: ["176540223927353344"]
 };
