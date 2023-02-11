@@ -10,6 +10,9 @@ const fs = require("fs");
 module.exports = (bot, reload) => {
     const {client} = bot;
 
+    console.log(`Loading command handlers...`);
+
+    //Use fs here because the commands are in categorical subfolders. 
     fs.readdirSync("./commands/").forEach((category) => {
         let commands = getFiles(`./commands/${category}`, ".js");
 
@@ -21,5 +24,13 @@ module.exports = (bot, reload) => {
             client.commands.set(command.name, command);
         });
     });
+
+    if (client.commands.size === 0) {
+        console.log("Unable to load commands.");
+    }
+    client.commands.forEach((command) => {
+        console.log(`Loaded ${command.name}.`);
+    });
     console.log(`Loaded ${client.commands.size} commands.`);
+    console.log("-".repeat(20));
 }

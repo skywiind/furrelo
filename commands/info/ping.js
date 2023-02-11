@@ -1,5 +1,5 @@
 /*****************************************************
- * events.js
+ * ping.js
  * Defines the ping command and its deployment script.
  *****************************************************/
 

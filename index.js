@@ -34,14 +34,4 @@ client.loadCommands(bot, false);
 
 module.exports = bot;
 
-/* client.on("ready", () => {
-    console.log(`Logged in as ${client.user.tag}`);
-});
-
-client.on("messageCreate", (message) => {
-    if (message.content == "hi") {
-        message.reply("Hello World");
-    }
-});*/
-
 client.login(process.env.TOKEN);

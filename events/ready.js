@@ -7,6 +7,9 @@
 module.exports = {
     name: "ready",
     run: async (bot) => {
-        console.log(`Logged in as ${bot.client.user.tag}`);
+        console.log("Login successful. :) ");
+        console.log(`Username: ${bot.client.user.tag}`);
+        console.log(`ID: ${bot.client.user.id}`);
+        console.log("-".repeat(20));
     }
 }

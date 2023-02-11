@@ -25,6 +25,7 @@ module.exports = {
         const cmdstr = args.shift().toLowerCase();
 
         let command = client.commands.get(cmdstr);
+        console.log(cmdstr);
         console.log(command);
         
         if (!command) return;

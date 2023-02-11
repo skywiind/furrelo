@@ -20,14 +20,16 @@ module.exports = (bot, reload) => {
         }
         const event = require(`../events/${f}`);
         client.events.set(event.name, event);
-
-        if (!reload) {
-            console.log(`${i + 1}, ${f} loaded`);
-        }
     });
 
     if (!reload) {
+        console.log(`Loading event handlers...`);
         initEvents(bot);
+        client.events.forEach((event) => {
+            console.log(`Loaded ${event.name}.`);
+        });
+        console.log(`Loaded ${client.events.size} events.`);
+        console.log("-".repeat(20));
     }
 }
 
