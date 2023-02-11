@@ -5,8 +5,18 @@
  *****************************************************/
 
 const Discord = require("discord.js");
-
+const Keyv = require("keyv");
 require("dotenv").config();
+
+const dbUser = process.env.dbUser;
+const dbPass = process.env.dbPass;
+const dbIP   = process.env.dbIP;
+const dbPath = process.env.dbPath;
+
+const dbo = new Keyv(`mysql://${dbUser}:${dbPass}@${dbIP}/${dbPath}`);
+dbo.on("error", err => console.error("Keyv connection error:", err));
+
+
 
 const client = new Discord.Client({
     intents: [
