@@ -13,7 +13,7 @@ module.exports = (bot, reload) => {
         console.log("No events found");
     }
 
-    events.forEach((f, i) => {
+    events.forEach((f) => {
 
         if (reload) {
             delete require.cache[require.resolve(`../event/${f}`)];

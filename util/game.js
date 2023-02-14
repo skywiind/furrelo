@@ -4,7 +4,6 @@
  *****************************************************/
 
 //Accepts two arrays of player IDs, boolean outcome, date/time, string for title
-//TODO: decide datetime module/format
 //NOTE: maybe make title foreign key to other table? 
 class Game extends Object {
     constructor(teamA, teamB, outcome, date, title) {
@@ -39,6 +38,36 @@ class Game extends Object {
 
         // console.log(output);
         // return this.teamA.toString();
+    }
+
+    getOutcome(players) {
+        let result = '';
+        let winners = [];
+        let losers = [];
+        
+        result = this.outcome;
+        //false = teamA won
+        if (!result) {
+            this.teamA.forEach(async (winner, i) => {
+                winners[i] = await players.get(String(winner));
+            });
+            this.teamB.forEach(async (loser, i) => {
+                losers[i] = await players.get(String(loser));
+            });
+            result = `Team A won.`;
+        }
+        else {
+            this.teamB.forEach(async (winner, i) => {
+                winners[i] = await players.get(String(winner));
+            });
+            this.teamA.forEach(async (loser, i) => {
+                losers[i] = await players.get(String(loser));
+            });
+            result = `Team B won.`;
+        }
+
+        return `${result} The winners were: ${winners}. The losers were: ${losers}.`;
+
     }
 
 }

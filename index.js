@@ -6,6 +6,7 @@
 
 const Discord = require("discord.js");
 const Keyv = require("keyv");
+const KeyvMySQL = require("@keyv/mysql");
 require("dotenv").config();
 
 const dbUser = process.env.dbUser;
@@ -13,8 +14,11 @@ const dbPass = process.env.dbPass;
 const dbIP   = process.env.dbIP;
 const dbPath = process.env.dbPath;
 
-const dbo = new Keyv(`mysql://${dbUser}:${dbPass}@${dbIP}/${dbPath}`);
-dbo.on("error", err => console.error("Keyv connection error:", err));
+const players = new Keyv({ store: new KeyvMySQL(`mysql://${dbUser}:${dbPass}@${dbIP}/${dbPath}`), namespace: 'players'})
+players.on("error", err => console.error("Keyv connection error:", err));
+
+const games = new Keyv({ store: new KeyvMySQL(`mysql://${dbUser}:${dbPass}@${dbIP}/${dbPath}`), namespace: 'games'})
+games.on("error", err => console.error("Keyv connection error:", err));
 
 
 
@@ -29,7 +33,8 @@ const client = new Discord.Client({
 
 let bot = {
     client,
-    dbo,
+    players,
+    games,
     prefix: "fe.",
     owners: ["176540223927353344"]
 };
