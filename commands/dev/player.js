@@ -8,7 +8,8 @@ module.exports = {
     name: "player",
     category: "dev",
     devOnly: true,
-    run: async ({client, players, message, args}) => {
+    run: async ({client, players, games, message, args}) => {
+        console.log(args);
         const testplayer = new Player('12345', 'Testy Test', 1000, .5);
         console.log(await players.has(String(message.content)));
         if (! await players.has(String(message.content))) {

@@ -10,6 +10,15 @@ const getFiles = (path, ending) => {
     return fs.readdirSync(path).filter(f=> f.endsWith(ending));
 }
 
+//Message filter that returns true if the new message is a reply to the input message.
+const dialogFilter = (reply) => {
+    if (reply.type != 19) {
+        return false;
+    }
+    return true;
+}
+
 module.exports = {
-    getFiles
+    getFiles,
+    dialogFilter
 };
